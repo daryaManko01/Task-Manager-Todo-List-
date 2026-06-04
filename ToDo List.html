@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        body {
+            padding: 55px 140px 55px 140px;
+            background-color: #FAF9F8;
+        }
+
+        .h1 {
+            color: #000;
+            font-family: Inter;
+            font-size: 26px;
+            font-style: normal;
+        }
+
+        .main_text {
+            color: #5F5E5E;
+            font-family: Inter;
+            font-size: 14px;
+            font-style: normal;
+        }
+
+        .icon_main {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .right_menu {
+            display: flex;
+            flex-direction: row;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .left_menu {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .text {
+            gap: 25px;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .text_date {
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .color {
+            color: #2B67D0;
+        }
+
+        .button {
+            background-color: white;
+            border: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bg {
+            background-color: white;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .bg_blur {
+            background-color: #F0F6FD;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .button_radius {
+            background-color: #F0F6FD;
+            border: 1px solid #F0F6FD;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button_radius_2 {
+            width: 15px;
+            height: 15px;
+            appearance: none;
+            border: 1px solid #2B67D0;
+            border-radius: 50%;
+            background-color: #F0F6FD;
+            cursor: pointer;
+        }
+
+        .button_radius_2:checked {
+            background-color: #2B67D0;
+        }
+
+        .button_radius_2:checked::before {
+            content: "✓";
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .color_text {
+            color: #292827;
+
+        }
+
+        .text_plan {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .block_2 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tasks_main {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .task_get {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .color_bg {
+            background-color: #FAF9F8;
+            border: 1px solid #FAF9F8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .task_done {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+        }
+
+        .end {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .input {
+            background-color: white;
+            border: 1px solid white;
+            outline: none;
+        }
+
+        ::placeholder {
+            color: #2B67D0;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="right_menu">
+            <div class="icon_main">
+                <img src="src/sun.svg">
+                <span class="h1"><strong>Мой день</strong></span>
+            </div>
+            <div class="icon_main text">
+                <div class="icon_main">
+                    <img src="src/set.svg">
+                    <span class="main_text">Сетка</span>
+                </div>
+                <div class="icon_main">
+                    <img src="src/line.svg">
+                    <span class="main_text">Список</span>
+                </div>
+            </div>
+        </div>
+        <div class="left_menu">
+            <div class="icon_main">
+                <img src="src/stroke.svg">
+                <span class="main_text">Сортировка</span>
+            </div>
+            <div class="icon_main">
+                <img src="src/group.svg">
+                <span class="main_text">Группировать</span>
+            </div>
+            <div class="icon_main">
+                <img src="src/light.svg">
+                <span class="main_text">Предложения</span>
+            </div>
+        </div>
+    </div>
+    <div class="text_date">
+        <span class="main_text">четверг , 4 июня</span>
+    </div>
+    <div class="bg">
+        <div class="icon_main">
+            <button class="button"><img src="src/plus.svg"></button>
+            <input class="input" type="text" name="text" placeholder="Добавить задачу">
+        </div>
+    </div>
+    <div class="tasks_main">
+        <div class="bg_blur">
+            <div class="block_2">
+                <div class="icon_main">
+                    <input class="button_radius_2" type="checkbox">
+                    <div class="text_plan">
+                        <span class="main_text color_text">Прочитать книгу</span>
+                        <span class="main_text">Задачи</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="button_radius"><img src="src/star_1.svg"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg_blur">
+            <div class="block_2">
+                <div class="icon_main">
+                    <input class="button_radius_2" type="checkbox">
+                    <div class="text_plan">
+                        <span class="main_text color_text">Сделать английский</span>
+                        <span class="main_text">Задачи</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="button_radius"><img src="src/star_1.svg"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg_blur">
+            <div class="block_2">
+                <div class="icon_main">
+                    <input class="button_radius_2" type="checkbox">
+                    <div class="text_plan">
+                        <span class="main_text color_text">Сходить в спортзал</span>
+                        <span class="main_text">Задачи</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="button_radius"><img src="src/star_1.svg"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg_blur">
+            <div class="block_2">
+                <div class="icon_main">
+                    <input class="button_radius_2" type="checkbox">
+                    <div class="text_plan">
+                        <span class="main_text color_text">Изучить программирование</span>
+                        <span class="main_text">Задачи</span>
+                    </div>
+                </div>
+                <div>
+                    <button class="button_radius"><img src="src/star_1.svg"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="end">
+        <div class="task_done">
+            <div class="icon_main">
+                <button class="color_bg"><img src="src/icon.svg"></button>
+                <div class="task_get">
+                    <span class="main_text color_text"><strong>Завершенные</strong></span>
+                    <span class="main_text">1</span>
+                </div>
+            </div>
+            <div class="bg_blur">
+                <div class="block_2">
+                    <div class="icon_main">
+                        <button class="button_radius"><img src="src/icon_2.svg"></button>
+                        <div class="text_plan">
+                            <span class="main_text color_text"><s>Подготовить документы</s></span>
+                            <span class="main_text">Задачи</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="button_radius"><img src="src/star_1.svg"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="task_done">
+            <div class="icon_main">
+                <button class="color_bg"><img src="src/icon.svg"></button>
+                <div class="task_get">
+                    <span class="main_text color_text"><strong>Избранные</strong></span>
+                    <span class="main_text">1</span>
+                </div>
+            </div>
+            <div class="bg_blur">
+                <div class="block_2">
+                    <div class="icon_main">
+                        <button class="button_radius"><img src="src/icon_2.svg"></button>
+                        <div class="text_plan">
+                            <span class="main_text color_text">Сходить на конференцию</span>
+                            <span class="main_text">Задачи</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="button_radius"><img src="src/star_2.svg"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
