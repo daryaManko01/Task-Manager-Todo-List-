@@ -228,70 +228,11 @@
     </div>
     <div class="bg">
         <div class="icon_main">
-            <button class="button"><img src="src/plus.svg"></button>
-            <input class="input" type="text" name="text" placeholder="Добавить задачу">
+            <button id="addNewTaskButton" class="button"><img src="src/plus.svg"></button>
+            <input id="newTaskName" class="input" type="text" name="text" placeholder="Добавить задачу">
         </div>
     </div>
-    <div class="tasks_main">
-        <div class="bg_blur">
-            <div class="block_2">
-                <div class="icon_main">
-                    <input class="button_radius_2" type="checkbox">
-                    <div class="text_plan">
-                        <span class="main_text color_text">Прочитать книгу</span>
-                        <span class="main_text">Задачи</span>
-                    </div>
-                </div>
-                <div>
-                    <button class="button_radius"><img src="src/star_1.svg"></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg_blur">
-            <div class="block_2">
-                <div class="icon_main">
-                    <input class="button_radius_2" type="checkbox">
-                    <div class="text_plan">
-                        <span class="main_text color_text">Сделать английский</span>
-                        <span class="main_text">Задачи</span>
-                    </div>
-                </div>
-                <div>
-                    <button class="button_radius"><img src="src/star_1.svg"></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg_blur">
-            <div class="block_2">
-                <div class="icon_main">
-                    <input class="button_radius_2" type="checkbox">
-                    <div class="text_plan">
-                        <span class="main_text color_text">Сходить в спортзал</span>
-                        <span class="main_text">Задачи</span>
-                    </div>
-                </div>
-                <div>
-                    <button class="button_radius"><img src="src/star_1.svg"></button>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg_blur">
-            <div class="block_2">
-                <div class="icon_main">
-                    <input class="button_radius_2" type="checkbox">
-                    <div class="text_plan">
-                        <span class="main_text color_text">Изучить программирование</span>
-                        <span class="main_text">Задачи</span>
-                    </div>
-                </div>
-                <div>
-                    <button class="button_radius"><img src="src/star_1.svg"></button>
-                </div>
-            </div>
-        </div>
+    <div id="tasksList" class="tasks_main">
     </div>
     <div class="end">
         <div class="task_done">
@@ -343,5 +284,5 @@
         </div>
     </div>
 
-
+    <script src="ToDo.js"></script>
 </body>
