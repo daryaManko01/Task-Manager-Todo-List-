@@ -11,12 +11,27 @@ function addNewTask() {
     tasksList.innerHTML = createTaskHtml(text) + tasksList.innerHTML;
 }
 
+function compliteTask(checkBox, taskId) {
+    if (checkBox.checked) {
+        const element = document.getElementById(`${taskId}`);
+        const target = document.getElementById('doneTasks');
+        target.prepend(element);
+    } else {
+        const element = document.getElementById(`${taskId}`);
+        const target = document.getElementById('tasksList');
+        target.prepend(element);
+    }
+}
+
+
+let currentTaskId = 0;
+
 function createTaskHtml(text) {
     let taskHtmlTemplate =
-        `<div class="bg_blur">
+        `<div id="${currentTaskId}" class="bg_blur">
         <div class="block_2">
             <div class="icon_main">
-                <input class="button_radius_2" type="checkbox">
+                <input class="button_radius_2" onclick="compliteTask(this , ${currentTaskId})" type="checkbox">
                     <div class="text_plan">
                         <span class="main_text color_text">${text}</span>
                         <span class="main_text">Задачи</span>
@@ -27,6 +42,8 @@ function createTaskHtml(text) {
             </div>
         </div>
     </div>`
+    currentTaskId++;
     return taskHtmlTemplate;
 }
+
 
