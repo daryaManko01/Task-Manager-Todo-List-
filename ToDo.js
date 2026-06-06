@@ -3,6 +3,10 @@ let newTaskName = document.getElementById('newTaskName');
 let tasksList = document.getElementById('tasksList');
 addNewTaskButton.addEventListener('click', addNewTask);
 
+let favourites = [];
+let toDo = [];
+let done = [];
+
 function addNewTask() {
     let text = newTaskName.value;
     if (text === "") {
@@ -12,21 +16,71 @@ function addNewTask() {
 }
 
 function compliteTask(checkBox, taskId) {
+    const element = document.getElementById(`${taskId}`);
+    let target;
+
     if (checkBox.checked) {
-        const element = document.getElementById(`${taskId}`);
-        const target = document.getElementById('doneTasks');
-        target.prepend(element);
+
+        done.push(taskId);
+        const index = toDo.indexOf(taskId);
+        toDo.splice(index, 1);
+        target = document.getElementById('doneTasks');
+
     } else {
-        const element = document.getElementById(`${taskId}`);
-        const target = document.getElementById('tasksList');
+
+        toDo.push(taskId);
+        const index = done.indexOf(taskId);
+        done.splice(index, 1);
+        target = document.getElementById('tasksList');
+    }
+
+    if (!favourites.includes(taskId)) {
         target.prepend(element);
     }
+
 }
 
+function selectedTasks(button_radius, taskId) {
+
+    const element = document.getElementById(`${taskId}`);
+    let target;
+    let myImage = document.getElementById(`image-${taskId}`);
+
+    if (favourites.includes(taskId)) {
+        myImage.src = "src/star_1.svg";
+
+        //remuve task from list
+        const index = favourites.indexOf(taskId);
+        favourites.splice(index, 1);
+
+        if (toDo.includes(taskId)) {
+
+            //move task to toDo list
+            target = document.getElementById('tasksList');
+            target.prepend(element);
+        }
+        else {
+
+            //move task to done list
+            target = document.getElementById('doneTasks');
+            target.prepend(element);
+        }
+    } else {
+
+        //add task favourites
+        const elemen = document.getElementById(`${taskId}`);
+        const target = document.getElementById('selectedTasks')
+        target.prepend(elemen);
+        myImage.src = "src/star_2.svg";
+        favourites.push(taskId);
+    }
+
+}
 
 let currentTaskId = 0;
 
 function createTaskHtml(text) {
+    toDo.push(currentTaskId);
     let taskHtmlTemplate =
         `<div id="${currentTaskId}" class="bg_blur">
         <div class="block_2">
@@ -38,12 +92,11 @@ function createTaskHtml(text) {
                     </div>
             </div>
             <div>
-                <button class="button_radius"><img src="src/star_1.svg"></button>
+                <button onclick="selectedTasks(this , ${currentTaskId})" class="button_radius"><img id ="image-${currentTaskId}" src="src/star_1.svg"></button>
             </div>
         </div>
     </div>`
     currentTaskId++;
     return taskHtmlTemplate;
 }
-
 
