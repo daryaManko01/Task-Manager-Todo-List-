@@ -187,6 +187,11 @@
             color: #2B67D0;
             opacity: 1;
         }
+
+        .strike-through {
+            text-decoration: line-through;
+        }
+
     </style>
 </head>
 
@@ -241,7 +246,7 @@
             <button class="color_bg"><img src="src/icon.svg"></button>
             <div class="task_get">
                 <span class="main_text color_text"><strong>Завершенные</strong></span>
-                <span class="main_text">1</span>
+                <span id="doneCount" class="main_text">0</span>
             </div>
         </div>
         <div id="doneTasks" class="task_done">
@@ -252,7 +257,7 @@
             <button class="color_bg"><img src="src/icon.svg"></button>
             <div class="task_get">
                 <span class="main_text color_text"><strong>Избранные</strong></span>
-                <span class="main_text">1</span>
+                <span id="favoriteCount" class="main_text">0</span>
             </div>
         </div>
         <div id="selectedTasks" class="task_done">

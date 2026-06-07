@@ -19,7 +19,12 @@ function compliteTask(checkBox, taskId) {
     const element = document.getElementById(`${taskId}`);
     let target;
 
+    const myText = document.getElementById(`my-Text-${taskId}`);
+
     if (checkBox.checked) {
+
+        //task done
+        myText.classList.add("strike-through");
 
         done.push(taskId);
         const index = toDo.indexOf(taskId);
@@ -28,17 +33,32 @@ function compliteTask(checkBox, taskId) {
 
     } else {
 
+        //handle unchected chekbox (move task to ToDo state);
         toDo.push(taskId);
         const index = done.indexOf(taskId);
         done.splice(index, 1);
         target = document.getElementById('tasksList');
+
+        myText.classList.remove("strike-through");
     }
 
     if (!favourites.includes(taskId)) {
         target.prepend(element);
     }
 
+    updateCount();
+
 }
+
+function updateCount() {
+
+    let count = document.getElementById('doneCount');
+    let doneTask = document.getElementById('doneTasks');
+    count.textContent = doneTask.children.length
+    count = document.getElementById('favoriteCount');
+    count.textContent = favourites.length;
+}
+
 
 function selectedTasks(button_radius, taskId) {
 
@@ -69,11 +89,13 @@ function selectedTasks(button_radius, taskId) {
 
         //add task favourites
         const elemen = document.getElementById(`${taskId}`);
-        const target = document.getElementById('selectedTasks')
+        const target = document.getElementById('selectedTasks');
         target.prepend(elemen);
         myImage.src = "src/star_2.svg";
         favourites.push(taskId);
     }
+
+    updateCount();
 
 }
 
@@ -87,7 +109,7 @@ function createTaskHtml(text) {
             <div class="icon_main">
                 <input class="button_radius_2" onclick="compliteTask(this , ${currentTaskId})" type="checkbox">
                     <div class="text_plan">
-                        <span class="main_text color_text">${text}</span>
+                        <span id="my-Text-${currentTaskId}" class="main_text color_text">${text}</span>
                         <span class="main_text">Задачи</span>
                     </div>
             </div>
