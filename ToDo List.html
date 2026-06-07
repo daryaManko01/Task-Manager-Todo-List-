@@ -167,6 +167,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            padding-top: 20px;
 
         }
 
@@ -192,10 +193,14 @@
             text-decoration: line-through;
         }
 
+        .details {
+            width: 100%;
+        }
     </style>
 </head>
 
 <body>
+
     <div class="menu">
         <div class="right_menu">
             <div class="icon_main">
@@ -243,25 +248,30 @@
 
     <div class="end">
         <div class="icon_main">
-            <button class="color_bg"><img src="src/icon.svg"></button>
-            <div class="task_get">
-                <span class="main_text color_text"><strong>Завершенные</strong></span>
-                <span id="doneCount" class="main_text">0</span>
-            </div>
-        </div>
-        <div id="doneTasks" class="task_done">
+
+            <details class="details">
+                <summary>
+                    <span class="main_text color_text"><strong>Завершенные</strong></span>
+                    <span id="doneCount" class="main_text">0</span>
+                </summary>
+                <div id="doneTasks" class="task_done">
+                </div>
+            </details>
 
         </div>
 
         <div class="icon_main">
-            <button class="color_bg"><img src="src/icon.svg"></button>
-            <div class="task_get">
-                <span class="main_text color_text"><strong>Избранные</strong></span>
-                <span id="favoriteCount" class="main_text">0</span>
-            </div>
+            <details class="details">
+                <summary>
+                        <span class="main_text color_text"><strong>Избранные</strong></span>
+                        <span id="favoriteCount" class="main_text">0</span>
+                </summary>
+                <div id="selectedTasks" class="task_done">
+                </div>
+            </details>
+
         </div>
-        <div id="selectedTasks" class="task_done">
-        </div>
+     
     </div>
 
     <script src="ToDo.js"></script>
