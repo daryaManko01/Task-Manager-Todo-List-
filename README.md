@@ -39,3 +39,6 @@ git clone https://github.com/your-username/todo-list.git
 * Task deletion
 * Search and filtering
 * Responsive design
+
+<img width="1470" height="596" alt="image" src="https://github.com/user-attachments/assets/dbd65330-fe87-45ca-8803-9e784f9aca03" />
+
